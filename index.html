@@ -164,12 +164,12 @@
     <footer>
       <span data-i18n="footer_text">© Joint Research Project</span>
       <span class="sep"> / </span>
-      <span data-i18n="footer_updated">Last updated: 2025-12-22</span>
+      <span data-i18n="footer_updated">Last updated: 2025-12-23</span>
     </footer>
   </div>
 
 <script>
-  // ✅ data-i18n で使ってるキーだけの最小辞書（不要キーは削除）
+  //data-i18n
   const I18N = {
     ja: {
       page_title: "日韓共同研究",
@@ -216,10 +216,10 @@
       research_cap2: "画像：実験・制作・観測の様子",
 
       section_members_title: "メンバー（Members）",
-      section_members_text: "参加者情報をここに追加します。",
+      section_members_text: " チョン·ヒョジュ、ソ·ギョンジュ、鈴鹿泰正、島村真央",
 
       footer_text: "© Joint Research Project",
-      footer_updated: "Last updated: 2025-12-22",
+      footer_updated: "Last updated: 2025-12-23",
     },
 
     en: {
@@ -250,7 +250,7 @@
       jp_feature_3: "Strong foundation for research and engineering career paths",
       jp_role_1: "Web implementation / survey creation",
       jp_role_2: "Outputs: website / presentation materials",
-      jp_members_names: "Taisei Suzuka, Mao Shimamura",
+      jp_members_names: "Hyoju Jung, Kyung-ju Seo, Taisei Suzuka, Mao Shimamura",
 
       features_title: "School Features",
       role_title: "Role in the Joint Project",
@@ -270,7 +270,7 @@
       section_members_text: "Add participant information here.",
 
       footer_text: "© Joint Research Project",
-      footer_updated: "Last updated: 2025-12-22",
+      footer_updated: "Last updated: 2025-12-23",
     },
 
     ko: {
@@ -318,32 +318,32 @@
       research_cap2: "이미지: 실험·제작·관측 모습",
 
       section_members_title: "멤버(Members)",
-      section_members_text: "참여자 정보를 여기에 추가합니다.",
+      section_members_text: "정효주, 서경주, 스즈카 타이세이, 시마무라 마오.",
 
       footer_text: "© Joint Research Project",
-      footer_updated: "Last updated: 2025-12-22",
+      footer_updated: "Last updated: 2025-12-23",
     }
   };
 
   function setLanguage(lang) {
     const dict = I18N[lang] || I18N.ja;
 
-    // lang と title
+    //
     document.documentElement.lang = lang;
     document.title = dict.page_title || dict.site_title || "日韓共同研究";
 
-    // テキスト差し替え
+    //
     document.querySelectorAll("[data-i18n]").forEach((el) => {
       const key = el.getAttribute("data-i18n");
       if (dict[key] !== undefined) el.textContent = dict[key];
     });
 
-    // active ボタン
+    //
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.lang === lang);
     });
 
-    // 保存
+    //
     try { localStorage.setItem("lang", lang); } catch (_) {}
   }
 
